@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="520dp"
+        android:layout_weight="0.7"
+        android:background="@color/fondo"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imagenVersion"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="0.6"
+            android:src="@drawable/ic_launcher_background" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.4"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/nombreVersion"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="0.33"
+                android:gravity="center"
+                android:text="HOLAMUNDO"
+                android:textColor="@color/blanco"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/fechaVersion"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="0.33"
+                android:gravity="center"
+                android:text="HOLAMUNDO"
+                android:textColor="@color/blanco"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/numeroVersion"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="0.33"
+                android:gravity="center"
+                android:text="HOLAMUNDO"
+                android:textColor="@color/blanco"
+                android:textSize="30sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.3">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="50dp">
+        <TextView
+            android:id="@+id/scroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+
+            android:text="HOLAMUNDO"
+            android:textColor="@color/blanco"
+            android:textSize="25sp" />
+</ScrollView>
+    </LinearLayout>
+
+</LinearLayout>
