@@ -1,0 +1,123 @@
+<html>
+    <head>
+        <title>Colores</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .div{
+                background-color: white;
+                width: 70%;
+                height: 50%;
+                text-align: center;
+                margin: auto;
+                border-radius: 8px;
+                border: 2px solid black;
+            }
+
+            .div2{
+                border-radius: 8px;
+                border: 2px solid black;
+                width: 30%;
+                height: 20%;
+                display: flex;
+                justify-content: center;
+                align-items: center;             
+                margin-left: auto;
+                margin-right: auto; 
+                margin-bottom: 20px;
+                margin-top: 20px;
+            }
+
+            .button1, .button2 , .button3 , .button4 , .button5, .button6, .button7, .button8,  .button9, .button10 {
+                -webkit-transition-duration: 0.4s; 
+                transition-duration: 0.4s;
+                padding: 10px;
+                border: none;
+                text-align: center;
+                font-size: 16px;
+                width: 17%;
+                border-radius: 2px;
+            }
+
+            .button1:hover, .button2:hover , .button3:hover , .button4:hover , .button5:hover, .button6:hover, .button7:hover, .button8:hover, button9:hover, button10:hover{
+                background-color: white;
+                color: black;
+            } 
+
+            .button1{
+                background-color: crimson;
+            }
+            .button2{
+                background-color: cyan;
+            }
+            .button3{
+                background-color: gold;
+            }
+            .button4{
+                background-color: mediumaquamarine;
+            }
+            .button5{
+                background-color: darkgrey;
+            }
+            .button6{
+                background-color: hotpink;
+            }
+            .button7{
+                background-color:blueviolet;
+            }
+            .button8{
+                background-color: orange;
+            }
+            .button9{
+                background-color: royalblue;
+            }
+            .button10{
+                background-color: black;
+                color: white
+            }
+
+
+
+
+
+
+
+        </style>
+    </head>
+    <body>
+
+        <div class="div">  
+            <div class="div2" id ="div">
+                <h1 id='div'>Colores</h1>
+            </div>
+
+            <button class="button1" onmouseover="fondo('crimson')">Rojo</button>
+            <button class="button2" onmouseover="fondo('cyan')">Cian</button>
+            <button class="button3" onmouseover="fondo('gold')">Amarillo</button>
+            <button class="button4" onmouseover="fondo('mediumaquamarine')">Verde</button>
+            <button class="button5" onmouseover="fondo('lightgrey')">Gris</button>
+            <br>
+            <br>
+            <button class="button6" onmouseover="fondo('hotpink')">Rosa</button>
+            <button class="button7" onmouseover="fondo('blueviolet')">Morado</button>
+            <button class="button8" onmouseover="fondo('orange')">Naranja</button>
+            <button class="button9" onmouseover="fondo('royalblue')">Azul</button>
+            <button class="button10" onmouseover="fondo('black')">Negro</button>
+        </div>
+
+    </body>
+
+    <script>
+
+        function fondo(color) {
+            document.bgColor = color;
+            document.getElementById("div").style.backgroundColor = color;
+
+            if (color == "black") {
+                document.getElementById("div").style.color = 'white';
+            } else {
+                document.getElementById("div").style.color = 'black';
+            }
+        }
+    </script>
+</html>

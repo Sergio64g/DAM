@@ -1,0 +1,143 @@
+<html>
+    <head>
+        <title>Fondos de pantalla</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .div{
+                background-color: white;
+                width: 60%;
+                height: 60%;
+                text-align: center;
+                margin: auto;
+                border-radius: 8px;
+                border: 2px solid black;
+            }
+
+            .div2{
+                border-radius: 8px;
+                border: 2px solid black;
+                width: 50%;
+                height: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;             
+                margin-left: auto;
+                margin-right: auto; 
+                margin-bottom: 20px;
+                margin-top: 20px;
+                background-color: white;
+
+            }
+
+            .button1, .button2 , .button3 , .button4 {
+                border: none;
+                text-align: center;
+                font-size: 40px;
+                width: 45%;
+                height: 35%; 
+                border-radius: 5px;
+                margin-top: 10px;
+                margin-right: 10px;
+                margin-left: 10px;
+                background-repeat: no-repeat;
+                background-size: cover;
+
+            }
+
+            .button1:hover, .button2:hover , .button3:hover , .button4:hover{
+                background-color: white;
+                color: black;
+            } 
+            .button1{
+
+                background-image: url(sea.jpg);
+            }
+            .button2{
+
+                background-image: url(sierra.jpg);
+            }
+            .button3{
+
+                background-image: url(city.jpg);
+            }
+            .button4{
+
+                background-image: url(town.jpg);
+            }
+
+
+
+
+
+        </style>
+    </head>
+    <body>
+
+        <div class="div">  
+            <div class="div2">
+                <h1 id='div'>Fondos de pantalla</h1>
+            </div>
+
+            <button class="button1" onmouseover="mar()"><div class='div2'>Mar</div></button>
+            <button class="button2" onclick="sierra()"><div class='div2'>Sierra</div></button>
+            <button class="button3" onclick="ciudad()"><div class='div2'>Ciudad</div></button>
+            <button class="button4" onclick="pueblo()"><div class='div2'>Pueblo</div></button>
+
+        </div>
+
+    </body>
+
+
+    <audio id="sea">
+        <source src="seamp3.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="sierra">
+        <source src="sierramp3.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="city">
+        <source src="citymp3.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="town">
+        <source src="townmp3.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <script>
+
+        var sea = document.getElementById("sea");
+        var sierra1 = document.getElementById("sierra");
+        var city = document.getElementById("city");
+        var town = document.getElementById("town");
+
+        function mar() {
+
+            sea.play();
+            sierra1.pause();
+            city.pause();
+            town.pause();
+            document.body.style.backgroundImage = "url('sea.jpg')";
+        }
+        function sierra() {
+            document.body.style.backgroundImage = "url('sierra.jpg')";
+            sierra1.play();
+            sea.pause();
+            city.pause();
+            town.pause();
+        }
+        function ciudad() {
+            document.body.style.backgroundImage = "url('city.jpg')";
+            city.play();
+            sea.pause();
+            sierra1.pause();
+            town.pause();
+        }
+        function pueblo() {
+            document.body.style.backgroundImage = "url('town.jpg')";
+            town.play();
+            sea.pause();
+            sierra1.pause();
+            city.pause();
+        }
+    </script>
+</html>
