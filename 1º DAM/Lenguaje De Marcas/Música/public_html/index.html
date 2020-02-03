@@ -1,0 +1,221 @@
+<html>
+    <head>
+        <title>Música</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .div{
+                background-color: white;
+                width: 70%;
+                height: 50%;
+                text-align: center;
+                margin: auto;
+                border-radius: 8px;
+                border: 2px solid black;
+            }
+
+            .div2{
+                border-radius: 8px;
+                border: 2px solid black;
+                width: 50%;
+                height: 30%;
+                display: flex;
+                justify-content: center;
+                align-items: center;             
+                margin-left: auto;
+                margin-right: auto; 
+                margin-bottom: 20px;
+                margin-top: 20px;
+            }
+            button{
+                -webkit-transition-duration: 0.4s; 
+                transition-duration: 0.4s;
+                padding: 10px;
+                border: none;
+                text-align: center;
+                font-size: 16px;
+                width: 17%;
+                border-radius: 2px;
+                background-color: grey;
+
+            }
+            button:hover{
+                background-color: white;
+                color: black;
+
+            }
+
+
+
+
+        </style>
+    </head>
+    <body style="background-image: url('fondo.png')">
+
+        <div class="div">  
+            <div class="div2">
+                <h1 id='div'>Música</h1>
+            </div>
+
+            <button onmouseover="Popmouse()" onclick="Popclick()">Pop</button>
+            <button  onmouseover="Rockmouse()"onclick="Rockclick()">Rock</button>
+            <button  onmouseover="Housemouse()"onclick="Houseclick()">House</button>
+            <button  onmouseover="Clásicamouse()" onclick="Clásicaclick()">Clásica</button>
+            <button  onmouseover="Electrónicamouse()" onclick="Electrónicaclick()">Electrónica</button>
+            <br>
+            <br>
+            <button   onmouseover="Swingmouse()" onclick="Swingclick()">Swing</button>
+            <button   onmouseover="Españolamouse()" onclick="Españolaclick()">Española</button>
+            <button   onmouseover="Dubstepmouse()"onclick="Dubstepclick()">Dubstep</button>
+
+        </div>
+
+    </body>
+
+
+    <audio id="pop">
+        <source src="popmp3.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="rock">
+        <source src="rockmp3.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="house">
+        <source src="housemp3.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="clasica">
+        <source src="clasicamp3.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="electronica">
+        <source src="electronicamp3.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="swing">
+        <source src="swingmp3.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="espanola">
+        <source src="espanolamp3.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="dubstep">
+        <source src="dubstepmp3.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <script>
+
+        var pop = document.getElementById("pop");
+        var rock = document.getElementById("rock");
+        var house = document.getElementById("house");
+        var clasica = document.getElementById("clasica");
+        var electronica = document.getElementById("electronica");
+        var swing = document.getElementById("swing");
+        var espanola = document.getElementById("espanola");
+        var dubstep = document.getElementById("dubstep");
+
+        function Popclick() {
+            pop.play();
+            rock.pause();
+            house.pause();
+            clasica.pause();
+            electronica.pause();
+            swing.pause();
+            espanola.pause();
+            dubstep.pause();
+        }
+        function Popmouse() {
+            document.body.style.backgroundImage = "url('pop.jpg')";
+        }
+
+        function Rockclick() {
+            pop.pause();
+            rock.play();
+            house.pause();
+            clasica.pause();
+            electronica.pause();
+            swing.pause();
+            espanola.pause();
+            dubstep.pause();
+        }
+        function Rockmouse() {
+            document.body.style.backgroundImage = "url('rock.jpeg')";
+        }
+        function Houseclick() {
+            pop.pause();
+            rock.pause();
+            house.play();
+            clasica.pause();
+            electronica.pause();
+            swing.pause();
+            espanola.pause();
+            dubstep.pause();
+        }
+        function Housemouse() {
+            document.body.style.backgroundImage = "url('house.jpeg')";
+        }
+        function Clásicaclick() {
+            pop.pause();
+            rock.pause();
+            house.pause();
+            clasica.play();
+            electronica.pause();
+            swing.pause();
+            espanola.pause();
+            dubstep.pause();
+        }
+        function Clásicamouse() {
+            document.body.style.backgroundImage = "url('clasica.jpeg')";
+        }
+        function Electrónicaclick() {
+            pop.pause();
+            rock.pause();
+            house.pause();
+            clasica.pause();
+            electronica.play();
+            swing.pause();
+            espanola.pause();
+            dubstep.pause();
+        }
+        function Electrónicamouse() {
+            document.body.style.backgroundImage = "url('electronica.jpeg')";
+        }
+        
+        function Swingclick() {
+            pop.pause();
+            rock.pause();
+            house.pause();
+            clasica.pause();
+            electronica.pause();
+            swing.play();
+            espanola.pause();
+            dubstep.pause();
+        }
+        function Swingmouse() {
+            document.body.style.backgroundImage = "url('swing.jpg')";
+        }
+        function Españolaclick() {
+            pop.pause();
+            rock.pause();
+            house.pause();
+            clasica.pause();
+            electronica.pause();
+            swing.pause();
+            espanola.play();
+            dubstep.pause();
+        }
+        function Españolamouse() {
+            document.body.style.backgroundImage = "url('espanola.jpeg')";
+        }
+        function Dubstepclick() {
+            pop.pause();
+            rock.pause();
+            house.pause();
+            clasica.pause();
+            electronica.pause();
+            swing.pause();
+            espanola.pause();
+            dubstep.play();
+        }
+        
+        function Dubstepmouse() {
+            document.body.style.backgroundImage = "url('dubstep.png')";
+        }
+    </script>
+</html>
