@@ -3,27 +3,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
     android:orientation="vertical"
-    android:background="@color/fondo">
-
-<ImageView
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_weight="0.15"
-    android:src="@drawable/title"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.8" />
+    tools:context=".MainActivity">
 
     <ImageView
+        android:id="@+id/imagenTitulo"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.13"
-        android:src="@drawable/fotter"/>
+        android:layout_height="133dp"
+        android:layout_weight="0.1"
+        android:src="@drawable/title" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerVersiones"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.8" />
+
+
+    <ImageView
+        android:id="@+id/imagenFotter"
+        android:layout_width="match_parent"
+        android:layout_height="112dp"
+        android:layout_weight="0.1"
+        android:src="@drawable/fotter" />
 
 </LinearLayout>
