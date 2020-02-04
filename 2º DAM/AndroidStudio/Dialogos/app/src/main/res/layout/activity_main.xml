@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        android:gravity="center"
+        android:text="Diálogos"
+        android:textSize="50dp" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.9"
+        android:stretchColumns="*">
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/botonDialogo"
+                android:text="Pulsar" />
+
+            <TextView
+                android:text="Informacion"
+                android:textSize="20dp" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/botonDialogo2"
+                android:text="Pulsar" />
+
+            <TextView
+                android:id="@+id/opciones"
+                android:text="Opciones"
+                android:textSize="20dp" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/botonDialogo3"
+                android:text="Pulsar" />
+
+            <TextView
+                android:id="@+id/opciones3"
+                android:text="Persona"
+                android:textSize="20dp" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/botonDialogo4"
+                android:text="Pulsar" />
+
+            <TextView
+                android:id="@+id/opciones4"
+                android:text="Respuesta"
+                android:textSize="20dp" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/botonDialogo5"
+                android:text="Pulsar" />
+
+            <TextView
+                android:id="@+id/opciones5"
+                android:text="Respuesta"
+                android:textSize="20dp" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/botonDialogo6"
+                android:text="Pulsar" />
+
+            <TextView
+                android:id="@+id/opciones6"
+                android:text="Respuesta"
+                android:textSize="20dp" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/botonDialogo7"
+                android:text="Pulsar" />
+
+            <TextView
+                android:id="@+id/opciones7"
+                android:text="Respuesta"
+                android:textSize="20dp" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/botonDialogo8"
+                android:text="Pulsar" />
+
+            <TextView
+                android:id="@+id/opciones8"
+                android:text="Respuesta"
+                android:textSize="20dp" />
+        </TableRow>
+ <TableRow>
+
+            <Button
+                android:id="@+id/botonDialogo9"
+                android:text="Pulsar" />
+
+            <TextView
+                android:id="@+id/opciones9"
+                android:text="Respuesta"
+                android:textSize="20dp" />
+        </TableRow>
+
+
+    </TableLayout>
+</LinearLayout>
