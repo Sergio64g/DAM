@@ -1,0 +1,5 @@
+<resources>
+<string name="app_name">EjemploInicial</string>
+    <string name="saludo">Bienvenido al primer ejemplo</string>
+    <string name="boton">Pulsar</string>
+</resources>
