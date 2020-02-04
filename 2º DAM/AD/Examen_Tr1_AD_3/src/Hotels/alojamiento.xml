@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Hoteles>
+    <Hotel>
+        <Nombre/>
+        <Localidad/>
+        <Tipo_de_alojamiento/>
+        <Valoración/>
+    </Hotel>
+</Hoteles>
