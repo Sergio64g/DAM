@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controladoras.ControladoraVentana1">
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Close" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Delete" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="About" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <center>
+        <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+            <tabs>
+                <Tab fx:id="tabBotones" text="Botones">
+                    <content>
+                        <GridPane>
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Button fx:id="btnRojo" mnemonicParsing="false" text="Button" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                                <Button fx:id="btnImagen" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+
+                                <Button fx:id="btnNormal" alignment="CENTER" mnemonicParsing="false" text="Button" GridPane.halignment="CENTER" />
+                                <CheckBox fx:id="check" mnemonicParsing="false" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                <Label fx:id="label" text="Label" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                <FlowPane alignment="CENTER" hgap="20.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                    <children>
+                                        <RadioButton fx:id="radio1" mnemonicParsing="false" text="1" />
+                                        <RadioButton fx:id="radio2" mnemonicParsing="false" text="2" />
+                                        <RadioButton fx:id="radio3" mnemonicParsing="false" text="3" />
+                                    </children>
+                                </FlowPane>
+                            </children>
+                        </GridPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="tabTextos" text="Textos">
+                    <content>
+                        <GridPane>
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label text="Texto Normal" GridPane.halignment="CENTER" />
+                                <Label text="Texto Material" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                <JFXTextField fx:id="textoMaterial" promptText="Hint" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <TextField fx:id="textNormal" promptText="Hint" GridPane.columnIndex="1" />
+                                <TextArea fx:id="textArea" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                <Label text="Texto area" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                <Button fx:id="btnPantalla" mnemonicParsing="false" text="Siguiente pantalla" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                            </children>
+                        </GridPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="tabTablas" text="ComboBox">
+                    <content>
+                        <GridPane>
+                            <columnConstraints>
+                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <ComboBox fx:id="comboBox" prefWidth="150.0" GridPane.columnIndex="1" />
+                                <ChoiceBox fx:id="choice" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <Label text="ComboBox" />
+                                <Label text="ChoiceBox" GridPane.rowIndex="1" />
+                            </children>
+                        </GridPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="tabTablas1" text="Listas">
+                    <content>
+                        <GridPane>
+                            <columnConstraints>
+                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <ListView fx:id="lista" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                                    <GridPane.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </GridPane.margin>
+                                </ListView>
+                                <Label text="Listas" />
+                                <Button fx:id="btnLista" mnemonicParsing="false" text="Button" GridPane.columnSpan="2147483647" GridPane.rowIndex="1" />
+                            </children>
+                        </GridPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="tabTablas11" text="Dialogos">
+                    <content>
+                        <GridPane>
+                            <columnConstraints>
+                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Button fx:id="btnInfo" mnemonicParsing="false" text="Info" />
+                                <Button fx:id="btnConfirmacion" mnemonicParsing="false" text="Confirmacion" GridPane.columnIndex="1" />
+                                <Button fx:id="btnInput" mnemonicParsing="false" text="Input" GridPane.columnIndex="2" />
+                                <Button fx:id="btnBotones" mnemonicParsing="false" text="Botones" GridPane.rowIndex="1" />
+                                <Button fx:id="btnChoice" mnemonicParsing="false" text="Choice" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <Button fx:id="btnPerso" mnemonicParsing="false" text="Personalizado" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                            </children>
+                        </GridPane>
+                    </content>
+                </Tab>
+            <Tab fx:id="tabTablas2" text="Tablas">
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <center>
+                        <TableView fx:id="tabla" prefHeight="200.0" prefWidth="200.0" tableMenuButtonVisible="true" BorderPane.alignment="CENTER">
+                          <columns>
+                            <TableColumn fx:id="columnNombre" prefWidth="75.0" text="Nombre" />
+                            <TableColumn fx:id="columnApellido" prefWidth="75.0" text="Apellido" />
+                              <TableColumn fx:id="columnEdad" prefWidth="75.0" text="Edad" />
+                              <TableColumn fx:id="columnDisponibilidad" prefWidth="75.0" text="Disponibilidad" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                     </center>
+                     <top>
+                        <TextField fx:id="textoBuscar" promptText="Introduce nombre a buscar" BorderPane.alignment="CENTER" />
+                     </top>
+                     <bottom>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <center>
+                              <JFXButton fx:id="btnBorrar" text="Borrar" BorderPane.alignment="CENTER">
+                                 <BorderPane.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </BorderPane.margin>
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font>
+                                 <ripplerFill>
+                                    <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="0.02380952380952378" startX="0.9666666666666667">
+                                       <stops>
+                                          <Stop color="#4a07da" />
+                                          <Stop color="WHITE" offset="1.0" />
+                                       </stops>
+                                    </LinearGradient>
+                                 </ripplerFill>
+                              </JFXButton>
+                           </center>
+                           <left>
+                              <JFXButton fx:id="btnAgregar" alignment="CENTER" text="Agregar" BorderPane.alignment="CENTER">
+                                 <BorderPane.margin>
+                                    <Insets bottom="10.0" left="30.0" right="10.0" top="10.0" />
+                                 </BorderPane.margin>
+                                 <ripplerFill>
+                                    <LinearGradient cycleMethod="REPEAT" endX="1.0" endY="1.0" startX="0.7" startY="0.580952380952381">
+                                       <stops>
+                                          <Stop color="BLACK" />
+                                          <Stop color="WHITE" offset="1.0" />
+                                       </stops>
+                                    </LinearGradient>
+                                 </ripplerFill>
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font>
+                              </JFXButton>
+                           </left>
+                           <right>
+                              <JFXButton fx:id="btnObtener" text="Obtener" BorderPane.alignment="CENTER">
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="30.0" top="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font>
+                                 <ripplerFill>
+                                    <RadialGradient centerY="0.32380952380952377" cycleMethod="REPEAT" focusAngle="100.62" focusDistance="-0.7674418604651163" radius="0.13953488372093026">
+                                       <stops>
+                                          <Stop color="BLACK" />
+                                          <Stop color="#ae1313" offset="1.0" />
+                                       </stops>
+                                    </RadialGradient>
+                                 </ripplerFill>
+                              </JFXButton>
+                           </right>
+                           <BorderPane.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </BorderPane.margin>
+                        </BorderPane>
+                     </bottom>
+                  </BorderPane>
+               </content>
+            </Tab>
+            </tabs>
+        </TabPane>
+    </center>
+</BorderPane>

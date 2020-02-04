@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="850.0" style="-fx-background-image: url(src/resources/1293min.png);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controladoras.ControladoraSplash">
+   <center>
+      <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+              <ImageView fx:id="imagen" fitHeight="800.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true" />
+            <ProgressBar fx:id="progressBar" blendMode="HARD_LIGHT" prefWidth="900.0" progress="0.0">
+               <effect>
+                  <Reflection bottomOpacity="0.78" fraction="0.69" topOffset="2.0" topOpacity="0.2">
+                     <input>
+                        <Lighting bumpInput="$null">
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </input>
+                  </Reflection>
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </ProgressBar>
+         </children>
+      </StackPane>
+   </center>
+</BorderPane>
