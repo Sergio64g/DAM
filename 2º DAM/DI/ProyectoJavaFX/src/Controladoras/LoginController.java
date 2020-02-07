@@ -1,0 +1,84 @@
+package Controladoras;
+
+import Utils.Persona;
+import Utils.Personas;
+import Ventanas.Main;
+import Ventanas.Registrar;
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXCheckBox;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.stage.Stage;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class LoginController implements Initializable {
+
+    @FXML
+    JFXTextField inputUser;
+    @FXML
+    JFXPasswordField inputPassword;
+    @FXML
+    JFXButton btnSesion, btnRegistrar;
+    @FXML
+    JFXCheckBox check;
+
+    Personas personas;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        personas = new Personas();
+        acciones();
+    }
+
+    private void acciones() {
+        btnSesion.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                sesion();
+            }
+        });
+        btnRegistrar.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                registrar();
+            }
+        });
+    }
+
+    private void registrar() {
+        Registrar registrar = new Registrar();
+        Stage stage = (Stage) inputUser.getScene().getWindow();
+        stage.hide();
+    }
+
+    private void sesion() {
+        String user = inputUser.getText();
+        String pass = inputPassword.getText();
+        Persona p = personas.loginCorrecto(user, pass);
+        if (p != null) {
+            switch (p.getPermisos()){
+                case "Administrador":
+                    break;
+                case "Usuario": Main main = new Main();
+            }
+            Stage stage = (Stage) inputUser.getScene().getWindow();
+            stage.hide();
+
+        } else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText("Contraseña o usuario incorrectas");
+
+            alert.show();
+        }
+    }
+
+
+}

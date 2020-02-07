@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="545.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controladoras.RegistrarController">
+   <left>
+      <GridPane prefHeight="454.0" prefWidth="603.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="302.0" minWidth="10.0" prefWidth="302.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="316.66668701171875" minWidth="10.0" prefWidth="298.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ImageView fitHeight="157.0" fitWidth="157.0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowSpan="2" GridPane.valignment="CENTER">
+               <image>
+                  <Image url="@../Resources/registrar.png" />
+               </image>
+            </ImageView>
+            <JFXTextField fx:id="inputDNI" alignment="CENTER" labelFloat="true" promptText="DNI" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.rowSpan="2" GridPane.valignment="CENTER">
+               <unFocusColor>
+                  <RadialGradient centerX="0.5" centerY="0.5" cycleMethod="REFLECT" radius="0.5">
+                     <stops>
+                        <Stop color="WHITE" />
+                        <Stop color="#ff7400" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </unFocusColor>
+               <font>
+                  <Font name="Times New Roman" size="13.0" />
+               </font>
+               <focusColor>
+                  <LinearGradient endX="1.0" endY="0.11746034168061759" startY="1.0">
+                     <stops>
+                        <Stop color="#535353" />
+                        <Stop color="BLACK" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </focusColor>
+               <opaqueInsets>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </opaqueInsets>
+               <GridPane.margin>
+                  <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+               </GridPane.margin>
+            </JFXTextField>
+            <JFXTextField fx:id="inputName" alignment="CENTER" labelFloat="true" promptText="Username" GridPane.columnSpan="2" GridPane.rowIndex="3" GridPane.rowSpan="2">
+               <unFocusColor>
+                  <RadialGradient centerX="0.5" centerY="0.5" cycleMethod="REFLECT" radius="0.5">
+                     <stops>
+                        <Stop color="WHITE" />
+                        <Stop color="#ff7400" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </unFocusColor>
+               <font>
+                  <Font name="Times New Roman" size="13.0" />
+               </font>
+               <focusColor>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="#363636" />
+                        <Stop color="BLACK" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </focusColor>
+               <opaqueInsets>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </opaqueInsets>
+               <GridPane.margin>
+                  <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+               </GridPane.margin>
+            </JFXTextField>
+            <JFXComboBox fx:id="comboPolicy" prefHeight="25.0" prefWidth="125.0" promptText="Permisos" GridPane.columnSpan="2" GridPane.halignment="LEFT" GridPane.rowIndex="5" GridPane.rowSpan="2" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+               </GridPane.margin>
+               <focusColor>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="WHITE" />
+                        <Stop color="BLACK" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </focusColor>
+               <unFocusColor>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="WHITE" />
+                        <Stop color="BLACK" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </unFocusColor>
+            </JFXComboBox>
+            <JFXButton fx:id="btnRegistrar" text="Registrar" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="7">
+               <ripplerFill>
+                  <RadialGradient centerX="0.5111111111111111" centerY="0.5" cycleMethod="REFLECT" radius="0.011627918065980403">
+                     <stops>
+                        <Stop color="WHITE" />
+                        <Stop color="#ff7400" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </ripplerFill>
+               <font>
+                  <Font name="Times New Roman" size="20.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </GridPane.margin>
+            </JFXButton>
+            <JFXPasswordField fx:id="inputPassword" alignment="CENTER" focusColor="BLACK" promptText="Password" unFocusColor="#d78100" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.rowSpan="2" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="Times New Roman" size="13.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+               </GridPane.margin>
+            </JFXPasswordField>
+            <JFXButton fx:id="btnVolver" alignment="CENTER" buttonType="RAISED" text="Volver" textAlignment="CENTER" GridPane.rowIndex="6" GridPane.rowSpan="2">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </JFXButton>
+         </children>
+      </GridPane>
+   </left>
+</BorderPane>

@@ -28,17 +28,12 @@ public class ControladoraSplash implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         instancias();
         progressBar.progressProperty().bind(task.progressProperty());
-        FadeTransition transition = new FadeTransition(Duration.seconds(3), imagen);
-        transition.setToValue(1.0);
-        transition.setFromValue(0.0);
-        transition.play();
+
+        Thread thread = new Thread(task);
+        thread.start();
 
 
-        transition.setOnFinished(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                Thread thread = new Thread(task);
-                thread.start();
+
                 task.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
                     @Override
                     public void handle(WorkerStateEvent event) {
@@ -47,9 +42,6 @@ public class ControladoraSplash implements Initializable {
                         stage.close();
                     }
                 });
-            }
-        });
-
     }
 
     private void instancias() {
