@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name='Versiones'
+rootProject.name='ejercicio_versiones'
