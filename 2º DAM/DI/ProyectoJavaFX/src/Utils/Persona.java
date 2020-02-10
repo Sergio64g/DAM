@@ -1,7 +1,10 @@
 package Utils;
 
+import java.util.ArrayList;
+
 public class Persona {
     String dni, nombre, password, permisos;
+    ArrayList jugadores;
 
     public Persona() {
     }
@@ -11,6 +14,13 @@ public class Persona {
         this.nombre = nombre;
         this.password = password;
         this.permisos = permisos;
+    }
+
+    public Persona(String user, String pass) {
+        this.nombre = user;
+        this.password  = pass;
+        this.dni = "878974654";
+                this.permisos = "Usuario";
     }
 
     public String getDni() {

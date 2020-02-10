@@ -65,6 +65,9 @@
                <GridPane.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </GridPane.margin>
+               <font>
+                  <Font name="Times New Roman" size="13.0" />
+               </font>
                <unFocusColor>
                   <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                      <stops>
@@ -73,9 +76,6 @@
                      </stops>
                   </RadialGradient>
                </unFocusColor>
-               <font>
-                  <Font name="Times New Roman" size="13.0" />
-               </font>
             </JFXTextField>
             <JFXCheckBox fx:id="check" alignment="CENTER" checkedColor="WHITE" contentDisplay="CENTER" ellipsisString="Recordar" style="-fx-text-inner-color: white;" text="Recordar Sesión" textAlignment="CENTER" textFill="WHITE" textOverrun="LEADING_WORD_ELLIPSIS" GridPane.rowIndex="6">
                <font>

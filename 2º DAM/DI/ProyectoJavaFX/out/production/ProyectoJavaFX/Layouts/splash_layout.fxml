@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
-<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controladoras.SplashController">
    <children>
       <ProgressBar fx:id="progressBar" cache="true" layoutY="190.0" prefHeight="20.0" prefWidth="600.0" progress="0.0">
          <effect>
-            <ColorAdjust />
+            <InnerShadow blurType="ONE_PASS_BOX" choke="0.66" color="#0095ff" />
          </effect></ProgressBar>
+      <Label layoutX="40.0" layoutY="53.0" text="Gestor para entrenadores" textFill="WHITE">
+         <font>
+            <Font name="Times New Roman" size="52.0" />
+         </font>
+      </Label>
    </children>
    <cursor>
       <Cursor fx:constant="WAIT" />

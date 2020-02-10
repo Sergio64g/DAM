@@ -1,5 +1,7 @@
 package Controladoras;
 
+import Utils.Entrenador;
+import Utils.Entrenadores;
 import Utils.Persona;
 import Utils.Personas;
 import Ventanas.Main;
@@ -12,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
@@ -29,11 +32,11 @@ public class LoginController implements Initializable {
     @FXML
     JFXCheckBox check;
 
-    Personas personas;
+    Entrenadores entrenadores;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        personas = new Personas();
+        entrenadores = new Entrenadores();
         acciones();
     }
 
@@ -61,16 +64,12 @@ public class LoginController implements Initializable {
     private void sesion() {
         String user = inputUser.getText();
         String pass = inputPassword.getText();
-        Persona p = personas.loginCorrecto(user, pass);
-        if (p != null) {
-            switch (p.getPermisos()){
-                case "Administrador":
-                    break;
-                case "Usuario": Main main = new Main();
-            }
+        Entrenador e = new Entrenador(user, pass);
+        Entrenador entrenador = entrenadores.loginCorrecto(e);
+        if (entrenador != null) {
+            Main main = new Main(entrenador, check.isSelected());
             Stage stage = (Stage) inputUser.getScene().getWindow();
             stage.hide();
-
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
@@ -80,5 +79,8 @@ public class LoginController implements Initializable {
         }
     }
 
-
+    public void guardarPersona(Entrenador e) {
+        inputUser.setText(e.getNombreEntrenador());
+        inputPassword.setText(e.getPasswordEntrenador());
+    }
 }

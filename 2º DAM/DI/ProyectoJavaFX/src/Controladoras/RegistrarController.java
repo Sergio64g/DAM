@@ -1,7 +1,6 @@
 package Controladoras;
 
-import Utils.Persona;
-import Utils.Personas;
+import Utils.*;
 import Ventanas.Login;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
@@ -26,15 +25,20 @@ public class RegistrarController implements Initializable {
     @FXML
     JFXPasswordField inputPassword;
     @FXML
-    JFXComboBox comboPolicy;
+    JFXComboBox<Equipo> comboEquipos;
     @FXML
     JFXButton btnRegistrar, btnVolver;
 
-    Personas personas;
+    Entrenadores entrenadores;
+    IdsEntrenadores idsEntrenadores;
+    Equipos equipos;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        personas = new Personas();
+        entrenadores = new Entrenadores();
+        idsEntrenadores = new IdsEntrenadores();
+        equipos = new Equipos();
         comboBox();
         acciones();
 
@@ -64,23 +68,28 @@ public class RegistrarController implements Initializable {
 
 
     private void comboBox() {
-        ObservableList opciones = FXCollections.observableArrayList();
-        String options[] = {"Administrador", "Usuario"};
-        opciones.addAll(options);
+        ObservableList<Equipo> opciones = FXCollections.observableArrayList();
 
-        comboPolicy.setItems(opciones);
+        opciones.addAll(equipos.list());
+        comboEquipos.setItems(opciones);
     }
 
     private void registrar() {
-        Persona p = recogerPersona();
+
         if (comprobarVacio()) {
-            if (!personas.exists(p)) {
-                personas.addPersona(p);
+            Entrenador entrenador = recogerEntrenador();
+            if (!entrenadores.existsEntrenador(entrenador)) {
+                entrenador.setIdEntrenador(idsEntrenadores.sacarId());
+                entrenadores.addEntrenador(entrenador);
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Confirmacion");
+                alert.setHeaderText(entrenador.getNombreEntrenador() + " registrado");
+                alert.showAndWait();
                 volver();
             } else {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Warning Dialog");
-                alert.setHeaderText("El DNI ya esta registrado, pruebe otro");
+                alert.setHeaderText("El usuario ya exsite, elija otro");
                 alert.show();
             }
         } else {
@@ -98,15 +107,15 @@ public class RegistrarController implements Initializable {
             return false;
         } else if (inputPassword.getText().isEmpty()) {
             return false;
-        } else if (comboPolicy.getSelectionModel().isEmpty()) {
+        } else if (comboEquipos.getSelectionModel().isEmpty()) {
             return false;
         }
         return true;
     }
 
-    private Persona recogerPersona() {
-        Persona p = new Persona(inputDNI.getText(), inputName.getText(), inputPassword.getText(),
-                (String) comboPolicy.getSelectionModel().getSelectedItem());
-        return p;
+    private Entrenador recogerEntrenador() {
+        Entrenador entrenador = new Entrenador( inputName.getText(), inputDNI.getText(), inputPassword.getText(),
+                comboEquipos.getSelectionModel().getSelectedItem());
+        return entrenador;
     }
 }
