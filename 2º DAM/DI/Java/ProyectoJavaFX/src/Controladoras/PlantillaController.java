@@ -139,6 +139,7 @@ public class PlantillaController implements Initializable {
                     Jugador j = tablaJugadores.getSelectionModel().getSelectedItem();
                     listaTabla.remove(j);
                     tablaJugadores.refresh();
+                    //TODO delete todos y insert todos (Supuestamente funciona)
                     jugadores.removeJugador(j);
 
                 } else {

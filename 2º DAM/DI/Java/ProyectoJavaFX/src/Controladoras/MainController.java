@@ -61,7 +61,6 @@ public class MainController implements Initializable {
         labelUser.setText(e.getNombreEntrenador());
         nombreEquipo.setText(e.getEquipo().getNombreEquipo());
         ciudadEquipo.setText(e.getEquipo().getCiudadEquipo());
-        //TODO Imagenes no validas
         imagenEquipo.setImage(new Image(getClass().getResourceAsStream("../Resources/Equipos/" + e.getEquipo().getImagenEquipo())));
     }
 

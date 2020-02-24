@@ -80,22 +80,23 @@ public class Jugadores {
         return lista;
     }
 
-    
-    public void removeJugador(Jugador j) {
+    public int removeJugador(Jugador j) {
         conexion();
         String sql = "DELETE FROM jugadores WHERE idJugador = ?";
+        int i = 0;
         PreparedStatement ps = null;
         try {
             ps = conexion.prepareStatement(sql);
 
             ps.setInt(1, j.getIdJugador());
-            ps.executeUpdate();
+            i = ps.executeUpdate();
 
             conexion.close();
 
         } catch (SQLException e) {
             System.err.println("No se ha podido borrar al jugador");
         }
+        return i;
     }
 
     public void addJugador(Jugador j) {
