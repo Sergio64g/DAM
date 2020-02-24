@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.EquiposFragment"
+    android:background="@color/progressBarTint"
+    android:id="@+id/fragmentLayout">
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerEquipos"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+
+
+
+</FrameLayout>
