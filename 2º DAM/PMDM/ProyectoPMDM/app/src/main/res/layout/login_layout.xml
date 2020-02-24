@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".Login">
+
+    <FrameLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/splashimage"
+            android:alpha="0.5"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="ProyectoPMDM"
+            android:gravity="center"
+            android:textSize="30dp"
+            android:textColor="@color/black"/>
+    </FrameLayout>
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:ems="15"
+        android:textSize="30sp"
+        android:layout_margin="20dp"
+        app:backgroundTint="@color/progressBarTint"
+        android:hint="Name" />
+
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:textSize="30sp"
+        android:layout_weight="0.2"
+        android:ems="15"
+        app:backgroundTint="@color/progressBarTint"
+        android:hint="Password"
+        android:layout_margin="20dp"
+
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/login"
+        android:drawableLeft="@drawable/loginicon"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:text="Login"
+        android:textSize="30dp"
+        android:layout_margin="20dp"
+        android:backgroundTint="@color/progressBarTint"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"/>
+
+</LinearLayout>
