@@ -4,9 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.ObjectAnimator;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.ProgressBar;
+
+import com.example.proyectopmdm.Utils.Helper.HelperFavorito;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -18,7 +21,6 @@ public class SplashScreen extends AppCompatActivity {
         setContentView(R.layout.splash_screen_layout);
         instancias();
         animacion();
-
 
 
         Handler handler = new Handler();
@@ -34,6 +36,7 @@ public class SplashScreen extends AppCompatActivity {
 
 
 
+
     private void instancias() {
         progressBar = this.findViewById(R.id.progressBar);
     }
@@ -43,4 +46,6 @@ public class SplashScreen extends AppCompatActivity {
                 .setDuration(3000)
                 .start();
     }
+
+
 }

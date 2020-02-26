@@ -38,13 +38,13 @@ public class PerfilFragment extends Fragment {
 
 
     private ImageView userImage;
-    private TextView userName, userSurname;
+    private TextView userName;
     private ArrayList listaEquipos;
     private RecyclerView recyclerPerfil;
     private AdaptadorRecyclerPerfil adaptadorRecyclerPerfil;
     private String urlPeticion;
 
-    //TODO newInstance
+    //TODO newInstance con nombre
     public PerfilFragment() {
     }
 
@@ -54,8 +54,6 @@ public class PerfilFragment extends Fragment {
         listaEquipos = new ArrayList();
         urlPeticion = "https://www.thesportsdb.com/api/v1/json/1/lookup_all_teams.php?id=4335";
         adaptadorRecyclerPerfil = new AdaptadorRecyclerPerfil(context);
-
-
 
     }
 
@@ -67,7 +65,6 @@ public class PerfilFragment extends Fragment {
        View v = LayoutInflater.from(getContext()).inflate(R.layout.fragment_perfil, container, false);
         userImage = v.findViewById(R.id.userImage);
         userName = v.findViewById(R.id.userName);
-        userSurname = v.findViewById(R.id.userSurname);
         recyclerPerfil = v.findViewById(R.id.recyclerPerfil);
 
         return v;

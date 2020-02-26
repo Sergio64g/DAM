@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.proyectopmdm.R;
 import com.example.proyectopmdm.Utils.Equipo;
+import com.example.proyectopmdm.Utils.Helper.HelperFavorito;
 
 import java.util.ArrayList;
 
@@ -24,14 +26,19 @@ public class AdaptadorRecyclerEquipos extends RecyclerView.Adapter<AdaptadorRecy
     ArrayList<Equipo> listaEquipos;
     Context context;
     OnStarInterface onStarInterface;
+    HelperFavorito helperFavorito;
 
     public AdaptadorRecyclerEquipos(Context context) {
         this.context = context;
         listaEquipos = new ArrayList();
         onStarInterface = (OnStarInterface) context;
+        helperFavorito = new HelperFavorito(context,HelperFavorito.NOMBRE_DB,null,HelperFavorito.VERSION);
     }
 
     public void agregarEquipos(Equipo e) {
+        if (!helperFavorito.equipoExists(e)){
+            helperFavorito.insertEquipo(e);
+        }
         listaEquipos.add(e);
         this.notifyDataSetChanged();
     }
@@ -45,7 +52,7 @@ public class AdaptadorRecyclerEquipos extends RecyclerView.Adapter<AdaptadorRecy
 
     @Override
     public void onBindViewHolder(@NonNull final HolderEquipos holder, int position) {
-
+//TODO la estrella se repite
         final Equipo e = listaEquipos.get(position);
         holder.getNombreEquipo().setText(e.getNombre());
         holder.getDetalleEquipo().setText(e.getDetalles());
@@ -73,7 +80,7 @@ public class AdaptadorRecyclerEquipos extends RecyclerView.Adapter<AdaptadorRecy
 
         ImageView imagenEquipo;
         TextView nombreEquipo, detalleEquipo;
-        ToggleButton star;
+        CheckBox star;
 
         public HolderEquipos(@NonNull View itemView) {
             super(itemView);
@@ -100,7 +107,7 @@ public class AdaptadorRecyclerEquipos extends RecyclerView.Adapter<AdaptadorRecy
             return detalleEquipo;
         }
 
-        public ToggleButton getStar() {
+        public CheckBox getStar() {
             return star;
         }
     }

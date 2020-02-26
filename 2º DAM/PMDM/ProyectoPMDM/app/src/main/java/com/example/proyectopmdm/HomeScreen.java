@@ -5,15 +5,19 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.ContentValues;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.proyectopmdm.Adapters.AdaptadorRecyclerEquipos;
 import com.example.proyectopmdm.Adapters.FragmentAdapter;
 import com.example.proyectopmdm.Fragments.EquiposFragment;
 import com.example.proyectopmdm.Fragments.PerfilFragment;
 import com.example.proyectopmdm.Utils.Equipo;
+import com.example.proyectopmdm.Utils.Helper.HelperFavorito;
+import com.example.proyectopmdm.Utils.Usuario;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -25,6 +29,7 @@ public class HomeScreen extends AppCompatActivity implements AdaptadorRecyclerEq
     private TabLayout tabLayout;
     private FragmentAdapter adaptador;
     private ArrayList<Equipo> listaEquipos;
+    private Usuario user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +39,6 @@ public class HomeScreen extends AppCompatActivity implements AdaptadorRecyclerEq
         rellenarPager();
         acciones();
         colorearTabLayout();
-
-
     }
 
 
@@ -46,6 +49,12 @@ public class HomeScreen extends AppCompatActivity implements AdaptadorRecyclerEq
         viewPager = this.findViewById(R.id.viewPager);
         tabLayout = findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager);
+        Bundle extras = getIntent().getExtras();
+
+
+        if (extras != null) {
+            user = (Usuario) extras.get("user");
+        }
     }
 
 
@@ -76,7 +85,7 @@ public class HomeScreen extends AppCompatActivity implements AdaptadorRecyclerEq
 
             @Override
             public void onPageSelected(int position) {
-            //TODO colorear TabLayout
+            //TODO colorear TabLayout bugueado
                 Fragment temp = adaptador.getItem(position);
                 Drawable drawable = temp.getView().findViewById(R.id.fragmentLayout).getBackground();
                 tabLayout.setBackground(drawable);
@@ -91,6 +100,8 @@ public class HomeScreen extends AppCompatActivity implements AdaptadorRecyclerEq
 
     @Override
     public void onStarSelected(Equipo e, boolean selected) {
+        Toast.makeText(getApplicationContext(), e.getNombre(), Toast.LENGTH_SHORT).show();
+        HelperFavorito helperFavorito= new HelperFavorito(getApplicationContext(),HelperFavorito.NOMBRE_DB,null,HelperFavorito.VERSION);
         if (selected == true) {
             listaEquipos.add(e);
         } else {

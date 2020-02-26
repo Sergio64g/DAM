@@ -36,7 +36,7 @@
             android:layout_weight="0.5" />
     </LinearLayout>
 
-    <ToggleButton
+    <CheckBox
         android:layout_gravity="center"
         android:id="@+id/star"
         android:layout_width="0dp"
@@ -44,7 +44,6 @@
         android:layout_height="65dp"
         android:layout_weight="0.2"
         android:checked="false"
-        android:background="@drawable/check"
         android:textOn=""
         android:textOff="" />
 

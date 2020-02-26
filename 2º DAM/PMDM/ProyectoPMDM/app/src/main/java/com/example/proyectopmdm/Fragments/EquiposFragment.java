@@ -81,9 +81,7 @@ public class EquiposFragment extends Fragment {
                         String nombre = object.getString("strTeam");
                         String imagen = object.getString("strTeamBadge");
                         String detalles = object.getString("strDescriptionES");
-                        //TODO if(nombre equals nombre) .setDetalles
                         Equipo equipo = new Equipo(nombre, imagen, detalles);
-                        Log.v("test", equipo.getNombre());
                         adaptadorEquipos.agregarEquipos(equipo);
                     }
                 } catch (JSONException e) {

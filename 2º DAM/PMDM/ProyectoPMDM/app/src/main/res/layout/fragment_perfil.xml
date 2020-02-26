@@ -32,24 +32,13 @@
         <TextView
             android:id="@+id/userName"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.5"
+            android:layout_height="match_parent"
             android:text="Hola Mundo"
             android:gravity="center"
             android:layout_margin="10dp"
             android:textSize="30dp"
             android:background="@color/userName_Surname" />
 
-        <TextView
-            android:id="@+id/userSurname"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.5"
-            android:text="Hola Mundo"
-            android:gravity="center"
-            android:layout_margin="10dp"
-            android:textSize="30dp"
-            android:background="@color/userName_Surname" />
 
     </LinearLayout>
 

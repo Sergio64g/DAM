@@ -1,33 +1,33 @@
 package com.example.proyectopmdm.Utils;
 
 public class Equipo {
-    private String nombre, imagenEquipo, detalles;
+    private String nombreEquipo, imagenEquipo, detalles;
     private boolean favorito;
 
 
     public Equipo() {
     }
 
-    public Equipo(String nombre, String imagenEquipo, String detalles) {
-        this.nombre = nombre;
+    public Equipo(String nombreEquipo, String imagenEquipo, String detalles) {
+        this.nombreEquipo = nombreEquipo;
         this.imagenEquipo = imagenEquipo;
         this.detalles = detalles;
         favorito = false;
     }
 
-    public Equipo(String nombre, String imagenEquipo, String detalles, boolean favorito) {
-        this.nombre = nombre;
+    public Equipo(String nombreEquipo, String imagenEquipo, String detalles, boolean favorito) {
+        this.nombreEquipo = nombreEquipo;
         this.imagenEquipo = imagenEquipo;
         this.detalles = detalles;
         this.favorito = favorito;
     }
 
     public String getNombre() {
-        return nombre;
+        return nombreEquipo;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombre(String nombreEquipo) {
+        this.nombreEquipo = nombreEquipo;
     }
 
     public String getDetalles() {
