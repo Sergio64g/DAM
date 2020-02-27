@@ -1,9 +1,9 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1,
+  "version": 1, 
   "newProjectRoot": "projects",
   "projects": {
-    "ProyectoInicial": {
+    "ProyectoAngular": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ProyectoInicial",
+            "outputPath": "dist/ProyectoAngular",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ProyectoInicial:build"
+            "browserTarget": "ProyectoAngular:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ProyectoInicial:build:production"
+              "browserTarget": "ProyectoAngular:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ProyectoInicial:build"
+            "browserTarget": "ProyectoAngular:build"
           }
         },
         "test": {
@@ -110,19 +110,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ProyectoInicial:serve"
+            "devServerTarget": "ProyectoAngular:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ProyectoInicial:serve:production"
+              "devServerTarget": "ProyectoAngular:serve:production"
             }
           }
         }
       }
-    }
-  },
-  "defaultProject": "ProyectoInicial",
-  "cli": {
-    "analytics": "15726945-9a3d-4f0f-8125-d53bba5a2ae2"
-  }
+    }},
+  "defaultProject": "ProyectoAngular"
 }
