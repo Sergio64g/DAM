@@ -58,11 +58,13 @@ public class HelperFavorito extends SQLiteOpenHelper {
     public void insertEquipo(Equipo e) {
         SQLiteDatabase dbUsuariosEscritura = this.getWritableDatabase();
         ContentValues nuevoRegistro = new ContentValues();
-        nuevoRegistro.put(SchemaBDEquipo.NOMBRE, e.getNombre());
+        String query = "INSERT INTO %s VALUES ('%s','%s','%s')";
+       /* nuevoRegistro.put(SchemaBDEquipo.NOMBRE, e.getNombre());
         nuevoRegistro.put(SchemaBDEquipo.DETALLES, e.getDetalles());
-        nuevoRegistro.put(SchemaBDEquipo.IMAGEN, e.getImagenEquipo());
+        nuevoRegistro.put(SchemaBDEquipo.IMAGEN, e.getImagenEquipo());*/
 //TODO Error al insertar
-        dbUsuariosEscritura.insert(SchemaBDEquipo.NOMBRE_TABLA, null, nuevoRegistro);
+        //dbUsuariosEscritura.insert(SchemaBDEquipo.NOMBRE_TABLA, null, nuevoRegistro);
+        dbUsuariosEscritura.execSQL(String.format(query, SchemaBDEquipo.NOMBRE_TABLA, SchemaBDEquipo.NOMBRE, SchemaBDEquipo.DETALLES,SchemaBDEquipo.IMAGEN));
         dbUsuariosEscritura.close();
     }
 
