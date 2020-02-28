@@ -26,7 +26,6 @@ public class IdsEntrenadores {
             rs = conexion.createStatement().executeQuery(sql2);
             if (rs.next()) {
                 id = rs.getInt("idEntrenador");
-                System.out.println(id);
             }
         } catch (SQLException e) {
             e.printStackTrace();
