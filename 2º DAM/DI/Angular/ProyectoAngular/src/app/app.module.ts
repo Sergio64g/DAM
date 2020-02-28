@@ -3,10 +3,16 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
+import { CardCocheComponent } from './Components/card-coche/card-coche.component';
+import { CardColorComponent } from './Components/card-color/card-color.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavBarComponent,
+    CardCocheComponent,
+    CardColorComponent
   ],
   imports: [
     BrowserModule,

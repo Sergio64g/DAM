@@ -1,0 +1,19 @@
+<div class="container-fluid">
+<div class="row">
+    
+
+ <div class="card mb-3 bg-dark text-white"  style="width: 18rem;" *ngFor="let item of coches">
+    <img [src]="item.imagen" class="card-img-top" alt="...">
+    <div class="card-body">
+      <p class="card-text">CV : {{item.caballos}}</p>
+    </div>
+    <ul class="list-group list-group-flush " *ngFor="let itemC of item.colores">
+      <li class="list-group-item" [ngStyle]="{'color': itemC.texto,'background-color':itemC.hex}" >{{itemC.nombre}}</li>
+    </ul>
+    <div class="card-body">
+        <button type="button" class="btn btn-primary btn-lg btn-block"
+        [routerLink]="['/detalles',item.nombre]" 
+        >{{item.marca}}  {{item.nombre}}</button>
+    </div>
+  </div>
+</div></div>
