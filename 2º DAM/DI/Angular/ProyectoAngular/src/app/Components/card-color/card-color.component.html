@@ -1,3 +1,8 @@
+
+<div class="alert alert-dark" role="alert">
+  El numero de colores es: {{contador()}}
+</div>
+
 <div class="container-fluid">
 <div class="row">
 <div class="card text-white mb-3" [ngStyle]="{'color': item.texto,'background-color':item.hex}"style="max-width: 18rem;" *ngFor="let item of colores">

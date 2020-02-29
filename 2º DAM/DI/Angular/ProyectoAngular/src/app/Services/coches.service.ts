@@ -102,9 +102,19 @@ export class CochesService {
     return this.arrayCoches;
   }
   getCocheMarca(marca: string): coche[] {
-    let cochesFiltrados: coche[];
+    let cochesFiltrados: coche[] = [];
     this.getCoches().forEach(element => {
       if (element.marca === marca) {
+        cochesFiltrados.push(element);
+      }
+    });
+    return cochesFiltrados;
+  }
+
+  getCocheModelo(modelo: string): coche[] {
+    let cochesFiltrados: coche[] = [];
+    this.getCoches().forEach(element => {
+      if (element.nombre === modelo) {
         cochesFiltrados.push(element);
       }
     });

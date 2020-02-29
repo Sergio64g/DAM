@@ -10,12 +10,20 @@ import { color } from '../../Utils/color';
 export class CardColorComponent implements OnInit {
 
   colores: color[];
-
+  
   constructor(private servicioColores: ColoresService) { 
     this.colores = servicioColores.getColores();
   }
 
   ngOnInit(): void {
   }
+
+  contador(){
+    let cont = 0;// iniciamos el contador en 0
+    this.colores.forEach(element => {
+      cont++;
+    });
+    return cont; // retornamos el valor de contador(cuantas butacas tienen estado 1)
+}
 
 }
