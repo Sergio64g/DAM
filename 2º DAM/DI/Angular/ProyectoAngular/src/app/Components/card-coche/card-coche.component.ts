@@ -9,7 +9,6 @@ import { ActivatedRoute } from "@angular/router";
   styleUrls: ["./card-coche.component.css"]
 })
 export class CardCocheComponent implements OnInit {
-  
   coches: coche[];
   parametro: string;
 
@@ -24,8 +23,17 @@ export class CardCocheComponent implements OnInit {
     this.rutas.params.subscribe(element => {
       this.parametro = element.parametro;
     });
-    if (this.parametro != null) {
-      this.coches = this.serviciosCoches.getCocheMarca(this.parametro);
+    switch (this.parametro) {
+      case "Renault":
+      case "Seat":
+      case "Tesla":
+        if (this.parametro != null) {
+          this.coches = this.serviciosCoches.getCocheMarca(this.parametro);
+        }
+        break;
+
+      default:
+        this.coches = this.serviciosCoches.getCocheCharacter(this.parametro);
     }
   }
 }

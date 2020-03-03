@@ -25,13 +25,13 @@ public class MainStageController implements Initializable {
     }
 
     private void acciones() {
-    githubButton.setOnAction(new EventHandler<ActionEvent>() {
-        @Override
-        public void handle(ActionEvent event) {
-            GitHub gitHub = new GitHub();
-            githubButton.getScene().getWindow().hide();
-        }
-    });
+        githubButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                GitHub gitHub = new GitHub();
+                githubButton.getScene().getWindow().hide();
+            }
+        });
         miEquipoButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -39,5 +39,9 @@ public class MainStageController implements Initializable {
                 miEquipoButton.getScene().getWindow().hide();
             }
         });
+    }
+
+    public void guardarCompilado(String code) {
+        textArea.setText(code);
     }
 }

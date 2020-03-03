@@ -1,6 +1,7 @@
 package Servidor;
 
-import Claves.Claves;
+import Utils.Usuario;
+import Utils.Usuarios;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
@@ -32,55 +33,29 @@ public class ServidorLogin {
         DataInputStream flujoEntrada = null;//FLUJO DE ENTRADA DE CLIENTE PARA RECOGER LA CLAVE ENCRIPTADA
         ObjectOutputStream objetoSalida = null;//FLUJO DE SALIDA AL CLIENTE PARA MANDAR LA CLAVE PUBLICA
         DataOutputStream flujoSalida = null;//FLUJO DE SALIDA AL CLIENTE PARA MANDAR LA CONFIRMACION
-
-        Claves claves = new Claves();
-        claves.generarClaves();
-        Cipher rsaCipher = null;
-        try {
-            rsaCipher = Cipher.getInstance("RSA");
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        } catch (NoSuchPaddingException e) {
-            e.printStackTrace();
-        }
-
+        Usuarios usuarios = new Usuarios();
 
         while (true) {
             //Acepta la conexión con el cliente
             clienteConectado = (SSLSocket) servidorSSL.accept();
 
-
-            objetoSalida = new ObjectOutputStream(clienteConectado.getOutputStream());
-            objetoSalida.writeObject(claves.getClavepub());
-            //TODO Enviar clave publica
             flujoEntrada = new DataInputStream(clienteConectado.getInputStream());
-            String mensajeEncriptado = flujoEntrada.readUTF();
-            //TODO Recoger mensaje encriptado
+            String nombre = flujoEntrada.readUTF();
+            System.out.println("Nombre: " + nombre);
 
-            try {
-                rsaCipher.init(Cipher.DECRYPT_MODE, claves.getClavepub());
-                byte[] mensajeDescifrado = rsaCipher.doFinal(mensajeEncriptado.getBytes(StandardCharsets.UTF_8));
-                String mensajeDescifrado2 = new String(mensajeDescifrado, "UTF8");
-                System.out.println("Hola Mundo");
-                System.out.println(mensajeDescifrado2);
-            } catch (InvalidKeyException e) {
-                e.printStackTrace();
-            } catch (BadPaddingException e) {
-                e.printStackTrace();
-            } catch (IllegalBlockSizeException e) {
-                e.printStackTrace();
-            }
-            //TODO Desencriptar con clave privada
+            flujoEntrada = new DataInputStream(clienteConectado.getInputStream());
+            String password = flujoEntrada.readUTF();
+            System.out.println("Mensaje Encriptado: " + password);
 
-            //TODO Comparar con la base de datos
+            //TODO COmparar con base de datos
+            Usuario usuario = usuarios.loginCorrecto(new Usuario(nombre, password));
+
             flujoSalida = new DataOutputStream(clienteConectado.getOutputStream());
-            if (true) {
-                flujoSalida.writeUTF("CHECK");
+            if (usuario != null) {
+                flujoSalida.writeBoolean(true);
             } else {
-                flujoSalida.writeUTF("ERROR");
+                flujoSalida.writeBoolean(false);
             }
-            System.out.println();
-            //TODO Mandar mensaje de confirmacion
 
         }
         // CERRAR STREAMS Y SOCKETS
@@ -91,9 +66,5 @@ public class ServidorLogin {
 
     }
 
-    public static void generarClaves() {
-
-
-    }
 }
 

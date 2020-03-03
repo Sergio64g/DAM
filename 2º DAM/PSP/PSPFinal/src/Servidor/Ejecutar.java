@@ -9,8 +9,6 @@ public class Ejecutar {
     public Ejecutar(String code){
         this.code = code;
         escribir(code);
-        ejecutarExe();
-
     }
 
     public void escribir(String code) {
@@ -26,25 +24,7 @@ public class Ejecutar {
             e.printStackTrace();
         }
     }
-    public void ejecutarExe() {
-        Thread thread = new Thread(ejecutarScript());
-        thread.start();
-    }
-    public Runnable ejecutarScript() {
-        Runnable runnable = new Runnable() {
-            @Override
-            public void run() {
-                //TODO No hace el processbuilder
-                ProcessBuilder pb = new ProcessBuilder("src/Servidor/Ejecutar.exe");
-                try {
-                    pb.start();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        };
-        return runnable;
-    }
+
     public String leerFichero(File file) {
         StringBuilder sb = new StringBuilder();
         BufferedReader br = null;

@@ -14,8 +14,4 @@ export class NavBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  cambiaNombre(newvalue:string) {
-    console.log(newvalue);
-  }
-
 }

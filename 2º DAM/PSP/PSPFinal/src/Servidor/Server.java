@@ -1,6 +1,7 @@
 package Servidor;
 
 import java.io.*;
+import java.util.concurrent.TimeUnit;
 import javax.net.ssl.*;
 
 public class Server {
@@ -24,13 +25,24 @@ public class Server {
             //Acepta la conexión con el cliente
             clienteConectado = (SSLSocket) servidorSSL.accept();
             flujoEntrada = new DataInputStream(clienteConectado.getInputStream());
-
             // El cliente envia el codigo
             String codigo = flujoEntrada.readUTF();
 
             Ejecutar ejecutar = new Ejecutar(codigo);
 
+            System.out.println("Arriba");
+
+            Process process = new ProcessBuilder("powershell", "C:\\Users\\sergi\\Desktop\\Ejecutar.ps1").start();
+           /* try {
+                TimeUnit.SECONDS.sleep(5);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }*/
+
+            System.out.println("Compilado");
             flujoSalida = new DataOutputStream(clienteConectado.getOutputStream());
+
+
             String compilado = ejecutar.leerFichero(new File("src/res.txt"));
             // Enviar el codigo compilado
             flujoSalida.writeUTF(compilado);
@@ -43,7 +55,8 @@ public class Server {
         clienteConectado.close();
         servidorSSL.close();*/
 
+
     }
+}
 
 
-}// main

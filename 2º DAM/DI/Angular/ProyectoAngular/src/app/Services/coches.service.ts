@@ -111,6 +111,18 @@ export class CochesService {
     return cochesFiltrados;
   }
 
+  getCocheCharacter(character: string): coche[] {
+    let cochesFiltrados: coche[] = [];
+    this.getCoches().forEach(element => {
+      if (element.nombre.toLowerCase().includes(character.toLowerCase())) {
+        console.log(element.nombre);
+        
+        cochesFiltrados.push(element);
+      }
+    });
+    return cochesFiltrados;
+  }
+
   getCocheModelo(modelo: string): coche[] {
     let cochesFiltrados: coche[] = [];
     this.getCoches().forEach(element => {

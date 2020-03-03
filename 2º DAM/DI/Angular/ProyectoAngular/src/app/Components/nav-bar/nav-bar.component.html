@@ -14,7 +14,7 @@
           <a class="nav-link" [routerLink]="['/colores']">Colores <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Marcas
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -26,8 +26,8 @@
       </ul>
       
       <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" [ngModel]="nombre"  aria-label="Search" [ngModelOptions]="{standalone: true}">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="this.nombre = nombre; cambiaNombre(this.nombre)" >Search</button>
+        <input class="form-control mr-sm-2" #nombre type="search" placeholder="Search" [ngModel]="nombre"  aria-label="Search" >
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" [routerLink]="['/coches',this.nombre.value]">Search</button>
       </form>
     </div>
   </nav>

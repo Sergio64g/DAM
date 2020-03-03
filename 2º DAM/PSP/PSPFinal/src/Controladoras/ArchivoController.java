@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -16,6 +17,7 @@ import javax.net.ssl.SSLSocketFactory;
 import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.concurrent.TimeUnit;
 
 public class ArchivoController implements Initializable {
 
@@ -26,6 +28,7 @@ public class ArchivoController implements Initializable {
     @FXML
     Label pathLabel;
 
+    File selectedFile;
     String code;
 
     @Override
@@ -43,7 +46,7 @@ public class ArchivoController implements Initializable {
                 FileChooser fileChooser = new FileChooser();
                 fileChooser.setTitle("Eliga un archivo");
                 fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text Files", "*.txt"));
-                File selectedFile = fileChooser.showOpenDialog(stage);
+                selectedFile = fileChooser.showOpenDialog(stage);
 
                 if (selectedFile != null) {
                     code = leerFichero(selectedFile);
@@ -54,9 +57,22 @@ public class ArchivoController implements Initializable {
         codeButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                if (code != null) {
+                if (selectedFile != null) {
                     String res = clienteSSL(code);
-                    textArea.setText(res);
+                    if(res != null) {
+                        MainStage mainStage = new MainStage(res);
+                        codeButton.getScene().getWindow().hide();
+                    } else{
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Error");
+                        alert.setHeaderText("El servidor esta cerrado o el codigo es invalido");
+                        alert.show();
+                    }
+
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Elija un archivo");
+                    alert.show();
                 }
             }
         });
@@ -84,9 +100,12 @@ public class ArchivoController implements Initializable {
         } catch (IOException e) {
             System.err.format("IOException: %s%n", e);
         }
-
+        try {
+            Thread.sleep(200);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         textArea.setText(sb.toString());
-
         return sb.toString();
     }
 
@@ -111,8 +130,12 @@ public class ArchivoController implements Initializable {
             flujoSalida.writeUTF(codigo);
 
             // CREO FLUJO DE ENTRADA AL SERVIDOR
-            // CREO FLUJO DE ENTRADA AL SERVIDOR
             DataInputStream flujoEntrada = new DataInputStream(Cliente.getInputStream());
+            try {
+                TimeUnit.SECONDS.sleep(3);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
 
             // EL servidor ME ENVIA UN MENSAJE
             compilado= flujoEntrada.readUTF();
@@ -122,7 +145,7 @@ public class ArchivoController implements Initializable {
             flujoSalida.close();
             Cliente.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("Sevidor cerrado");
         }
         return compilado;
     }
