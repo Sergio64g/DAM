@@ -15,6 +15,11 @@ public class Favorito {
         this.usuario = usuario;
     }
 
+    public Favorito(Equipo equipo, Usuario usuario) {
+        this.equipo = equipo;
+        this.usuario = usuario;
+    }
+
     public String getIdFavorito() {
         return idFavorito;
     }

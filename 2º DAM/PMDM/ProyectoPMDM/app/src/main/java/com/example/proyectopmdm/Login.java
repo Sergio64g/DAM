@@ -64,7 +64,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         boolean login = false;
 
         HelperFavorito helperFavorito = new HelperFavorito(getApplicationContext(), HelperFavorito.NOMBRE_DB, null, HelperFavorito.VERSION);
-       //TODO descomentar
         if (helperFavorito.usuarioExists(usuario)) {
             login = true;
             Log.v("test", String.valueOf(login));

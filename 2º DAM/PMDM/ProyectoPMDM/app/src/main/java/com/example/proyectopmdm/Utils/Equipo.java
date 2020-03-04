@@ -46,8 +46,12 @@ public class Equipo {
         this.imagenEquipo = imagenEquipo;
     }
 
-    public boolean isFavorito() {
-        return favorito;
+    public Integer isFavorito() {
+        if(favorito == true){
+            return 1;
+        } else {
+            return 0;
+        }
     }
 
     public void setFavorito(boolean favorito) {

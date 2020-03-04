@@ -7,4 +7,5 @@ public class SchemaBDFavorito implements BaseColumns {
     public static final String FAVORITO = "idFavorito";
     public static final String USUARIO = "nombreUsuario";
     public static final String EQUIPO = "nombreEquipo";
+
 }

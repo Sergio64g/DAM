@@ -32,11 +32,11 @@ public class AdaptadorRecyclerEquipos extends RecyclerView.Adapter<AdaptadorRecy
         this.context = context;
         listaEquipos = new ArrayList();
         onStarInterface = (OnStarInterface) context;
-        helperFavorito = new HelperFavorito(context,HelperFavorito.NOMBRE_DB,null,HelperFavorito.VERSION);
+        helperFavorito = new HelperFavorito(context, HelperFavorito.NOMBRE_DB, null, HelperFavorito.VERSION);
     }
 
     public void agregarEquipos(Equipo e) {
-        if (!helperFavorito.equipoExists(e)){
+        if (!helperFavorito.equipoExists(e)) {
             helperFavorito.insertEquipo(e);
         }
         listaEquipos.add(e);
@@ -56,7 +56,11 @@ public class AdaptadorRecyclerEquipos extends RecyclerView.Adapter<AdaptadorRecy
         final Equipo e = listaEquipos.get(position);
         holder.getNombreEquipo().setText(e.getNombre());
         holder.getDetalleEquipo().setText(e.getDetalles());
-        holder.getStar().setSelected(e.isFavorito());
+        if (e.isFavorito() == 0) {
+            holder.getStar().setSelected(false);
+        } else {
+            holder.getStar().setSelected(true);
+        }
         Glide.with(context).load(e.getImagenEquipo()).into(holder.getImagenEquipo());
         holder.getStar().setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -65,8 +69,6 @@ public class AdaptadorRecyclerEquipos extends RecyclerView.Adapter<AdaptadorRecy
                 notifyDataSetChanged();
             }
         });
-
-
 
 
     }
@@ -91,7 +93,7 @@ public class AdaptadorRecyclerEquipos extends RecyclerView.Adapter<AdaptadorRecy
             itemView.setTag(this);
         }
 
-        public HolderEquipos getTag(){
+        public HolderEquipos getTag() {
             return this.getTag();
         }
 

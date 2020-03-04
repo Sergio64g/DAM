@@ -16,6 +16,7 @@ import com.example.proyectopmdm.Adapters.FragmentAdapter;
 import com.example.proyectopmdm.Fragments.EquiposFragment;
 import com.example.proyectopmdm.Fragments.PerfilFragment;
 import com.example.proyectopmdm.Utils.Equipo;
+import com.example.proyectopmdm.Utils.Favorito;
 import com.example.proyectopmdm.Utils.Helper.HelperFavorito;
 import com.example.proyectopmdm.Utils.Usuario;
 import com.google.android.material.tabs.TabLayout;
@@ -53,7 +54,7 @@ public class HomeScreen extends AppCompatActivity implements AdaptadorRecyclerEq
 
 
         if (extras != null) {
-            user = (Usuario) extras.get("user");
+            user = extras.getParcelable("user");
         }
     }
 
@@ -63,10 +64,9 @@ public class HomeScreen extends AppCompatActivity implements AdaptadorRecyclerEq
         EquiposFragment equiposFragment = new EquiposFragment();
         ArrayList<Equipo> equiposFav = listaEquipos;
         //TODO pasar a new Instance listaEquipos
-        PerfilFragment perfilFragment = new PerfilFragment();
+        PerfilFragment perfilFragment = PerfilFragment.newInstance(user);
         listaFragments.add(perfilFragment);
         listaFragments.add(equiposFragment);
-
         adaptador = new FragmentAdapter(getSupportFragmentManager(), 0, listaFragments);
         viewPager.setAdapter(adaptador);
     }
@@ -102,10 +102,11 @@ public class HomeScreen extends AppCompatActivity implements AdaptadorRecyclerEq
     public void onStarSelected(Equipo e, boolean selected) {
         Toast.makeText(getApplicationContext(), e.getNombre(), Toast.LENGTH_SHORT).show();
         HelperFavorito helperFavorito= new HelperFavorito(getApplicationContext(),HelperFavorito.NOMBRE_DB,null,HelperFavorito.VERSION);
+        Favorito fav = new Favorito(e, user);
         if (selected == true) {
-            listaEquipos.add(e);
+            helperFavorito.insertFavorito(fav);
         } else {
-            listaEquipos.remove(e);
+            helperFavorito.deleteFavorito(fav);
         }
     }
 }
