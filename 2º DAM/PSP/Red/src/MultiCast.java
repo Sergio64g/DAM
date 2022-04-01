@@ -29,7 +29,7 @@ class Multicast {
                 if (linea.equals("Bye")) {
                     socket.close();
                     break;
-                }
+                }//Comentario
             }
             socket.leaveGroup(multicastGroupIP);
         } catch (SocketException e) {
